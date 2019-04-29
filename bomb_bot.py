@@ -40,10 +40,12 @@ async def on_message(message):
             await message.channel.send("%s :bomb: %d" % (player,n))
     
         if (argType == ":skull:"):
-            print(message.author)
-            await message.channel.send("La partie est finie")
+            if (message.author != client.user):
+                await message.channel.send("HAHA NOOB !")
+            else:
+                await message.channel.send("OH NO !")
             tabBot = list()
-            print(tabBot)
+            print("Reset de la partie")
     
     if message.content.startswith("/PyBomb"):
         splitted = message.content.split(" ")
@@ -56,4 +58,4 @@ async def on_message(message):
             else :
                 await message.channel.send("/bomb :skull:")
         
-client.run("NTcwNTEwOTE2NjQ3NjQ5MzEw.XMAPuA.9tPHebt3BsZiAuI_hO4rnu9Fn4Q")
+client.run(config.discord_bomb_token)
